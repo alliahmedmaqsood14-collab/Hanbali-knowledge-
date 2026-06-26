@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hanbali Knowledge Project | Ahmed Maqsood Alli</title>
+  <meta name="description" content="Seek Knowledge Upon the Qur'an and Authentic Sunnah. A comprehensive Islamic education platform following the understanding of the Salaf.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald: #0F766E; --emerald-light: #14B8A6; --emerald-dark: #0D5C56;
+      --gold: #D4AF37; --gold-light: #E8C84A; --gold-dark: #B8962E;
+      --ivory: #FAF7F2; --ivory-dark: #F0EBE3; --charcoal: #1F2937; --charcoal-light: #374151;
+      --navy: #1E3A5F; --navy-light: #2A4A73; --white: #FFFFFF;
+      --shadow: rgba(0,0,0,0.08); --shadow-lg: rgba(0,0,0,0.15);
+      --radius: 12px; --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-theme="dark"] {
+      --ivory: #1a1a2e; --ivory-dark: #16213e; --charcoal: #e0e0e0; --charcoal-light: #b0b0b0;
+      --white: #0f0f1a; --shadow: rgba(0,0,0,0.3); --shadow-lg: rgba(0,0,0,0.5);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--charcoal); line-height: 1.7; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Merriweather', serif; font-weight: 700; line-height: 1.3; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+    .arabic { font-family: 'Noto Naskh Arabic', 'Scheherazade New', serif; direction: rtl; }
+    .geometric-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230F766E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(250,247,242,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(15,118,110,0.1); }
+    [data-theme="dark"] .navbar { background: rgba(26,26,46,0.92); }
+    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { font-family: 'Merriweather', serif; font-size: 1.3rem; font-weight: 700; color: var(--emerald); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .logo-icon { width: 36px; height: 36px; background: var(--emerald); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--charcoal); font-weight: 500; font-size: 0.95rem; position: relative; padding: 0.5rem 0; transition: var(--transition); cursor: pointer; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--emerald); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-actions { display: flex; gap: 1rem; align-items: center; }
+    .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--charcoal); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 2rem; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; transition: var(--transition); }
+    .btn-primary { background: var(--emerald); color: var(--white); }
+    .btn-primary:hover { background: var(--emerald-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(15,118,110,0.3); }
+    .btn-gold { background: var(--gold); color: var(--charcoal); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,175,55,0.3); }
+    .btn-outline { background: transparent; color: var(--emerald); border: 2px solid var(--emerald); }
+    .btn-outline:hover { background: var(--emerald); color: var(--white); }
+    .btn-sm { padding: 0.5rem 1.25rem; font-size: 0.85rem; }
+    .theme-toggle { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--emerald); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--emerald); transition: var(--transition); }
+    .theme-toggle:hover { background: var(--emerald); color: var(--white); }
+    .search-bar { position: relative; width: 280px; }
+    .search-bar input { width: 100%; padding: 0.6rem 1rem 0.6rem 2.5rem; border-radius: 50px; border: 2px solid rgba(15,118,110,0.2); background: var(--white); font-size: 0.9rem; transition: var(--transition); color: var(--charcoal); }
+    .search-bar input:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(15,118,110,0.1); }
+    .search-bar .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--emerald); }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 8rem 2rem 4rem; overflow: hidden; background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory-dark) 100%); }
+    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(15,118,110,0.08) 0%, transparent 70%); border-radius: 50%; }
+    .hero-content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(15,118,110,0.1); color: var(--emerald); padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid rgba(15,118,110,0.2); }
+    .hero h1 { color: var(--charcoal); margin-bottom: 1.5rem; }
+    .hero h1 .highlight { color: var(--emerald); position: relative; }
+    .hero h1 .highlight::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(212,175,55,0.3); z-index: -1; border-radius: 4px; }
+    .hero-quote { font-family: 'Merriweather', serif; font-style: italic; font-size: 1.3rem; color: var(--charcoal-light); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero-quote .arabic { display: block; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--emerald); }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--emerald); font-size: 0.8rem; opacity: 0.7; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+    .section { padding: 6rem 2rem; position: relative; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+    .section-label { display: inline-block; color: var(--emerald); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+    .section-header h2 { color: var(--charcoal); margin-bottom: 1rem; }
+    .section-header p { color: var(--charcoal-light); font-size: 1.1rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; }
+    .card { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; box-shadow: 0 4px 20px var(--shadow); transition: var(--transition); border: 1px solid rgba(15,118,110,0.08); position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--emerald), var(--gold)); opacity: 0; transition: var(--transition); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px var(--shadow-lg); }
+    .card:hover::before { opacity: 1; }
+    .card-icon { width: 56px; height: 56px; border-radius: var(--radius); background: rgba(15,118,110,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--emerald); margin-bottom: 1.5rem; }
+    .card h3 { color: var(--charcoal); margin-bottom: 0.75rem; }
+    .card p { color: var(--charcoal-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .card-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--emerald); font-weight: 500; }
+    .mission-section { background: var(--white); }
+    .mission-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .mission-text p { font-size: 1.1rem; color: var(--charcoal-light); margin-bottom: 1.5rem; line-height: 1.8; }
+    .mission-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat-box { background: var(--ivory); padding: 1.5rem; border-radius: var(--radius); text-align: center; border: 1px solid rgba(15,118,110,0.1); }
+    .stat-number { font-size: 2rem; font-weight: 700; color: var(--emerald); display: block; }
+    .stat-label { font-size: 0.85rem; color: var(--charcoal-light); }
+    .daily-section { background: linear-gradient(135deg, var(--navy) 0%, var(--emerald-dark) 100%); color: var(--white); }
+    .daily-section .section-label { color: var(--gold); }
+    .daily-section h2 { color: var(--white); }
+    .daily-section .section-header p { color: rgba(255,255,255,0.8); }
+    .daily-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .daily-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition); }
+    .daily-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .daily-card h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.3rem; }
+    .daily-card .arabic { font-size: 1.4rem; color: var(--white); margin-bottom: 1rem; line-height: 2; }
+    .daily-card .translation { color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 1rem; }
+    .daily-card .reference { color: var(--gold-light); font-size: 0.85rem; font-weight: 600; }
+    .daily-card .explanation { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-top: 1rem; line-height: 1.7; }
+    .roadmap { max-width: 800px; margin: 0 auto; position: relative; }
+    .roadmap::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--emerald), var(--gold)); transform: translateX(-50%); }
+    .roadmap-item { display: flex; align-items: center; margin-bottom: 3rem; position: relative; }
+    .roadmap-item:nth-child(even) { flex-direction: row-reverse; }
+    .roadmap-item:nth-child(even) .roadmap-content { text-align: right; }
+    .roadmap-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); border: 4px solid var(--ivory); box-shadow: 0 0 0 4px var(--emerald); position: absolute; left: 50%; transform: translateX(-50%); z-index: 2; }
+    .roadmap-content { width: 45%; padding: 1.5rem; background: var(--white); border-radius: var(--radius); box-shadow: 0 4px 15px var(--shadow); border: 1px solid rgba(15,118,110,0.1); }
+    .roadmap-content h4 { color: var(--emerald); margin-bottom: 0.5rem; }
+    .roadmap-content p { color: var(--charcoal-light); font-size: 0.9rem; }
+    .roadmap-level { display: inline-block; background: var(--emerald); color: var(--white); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .newsletter-section { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%); color: var(--white); text-align: center; padding: 5rem 2rem; }
+    .newsletter-section h2 { color: var(--white); margin-bottom: 1rem; }
+    .newsletter-section p { color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .newsletter-form input { flex: 1; min-width: 250px; padding: 1rem 1.5rem; border-radius: var(--radius); border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: var(--white); font-size: 1rem; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+    .newsletter-form input:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.15); }
+    .newsletter-form .btn-gold { padding: 1rem 2rem; }
+    .footer { background: var(--charcoal); color: rgba(255,255,255,0.7); padding: 4rem 2rem 2rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+    .footer-brand .logo { color: var(--gold); margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
+    .footer-links h4 { color: var(--white); font-size: 1rem; margin-bottom: 1.25rem; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: var(--transition); cursor: pointer; }
+    .footer-links a:hover { color: var(--gold); padding-left: 4px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .page-hero { padding: 10rem 2rem 5rem; text-align: center; background: linear-gradient(135deg, var(--ivory) 0%, var(--ivory-dark) 100%); position: relative; overflow: hidden; }
+    .page-hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .page-hero h1 { margin-bottom: 1rem; }
+    .page-hero p { color: var(--charcoal-light); font-size: 1.1rem; }
+    .course-filters { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .filter-btn { padding: 0.5rem 1.25rem; border-radius: 50px; border: 2px solid var(--emerald); background: transparent; color: var(--emerald); font-weight: 600; cursor: pointer; transition: var(--transition); font-size: 0.9rem; }
+    .filter-btn.active, .filter-btn:hover { background: var(--emerald); color: var(--white); }
+    .course-card .course-img { width: 100%; height: 180px; background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); border-radius: var(--radius); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,0.9); }
+    .course-level { display: inline-block; background: var(--gold); color: var(--charcoal); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .course-meta { display: flex; gap: 1rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--ivory-dark); font-size: 0.85rem; color: var(--charcoal-light); }
+    .library-grid { display: grid; grid-template-columns: 250px 1fr; gap: 3rem; max-width: 1400px; margin: 0 auto; }
+    .library-sidebar { position: sticky; top: 100px; height: fit-content; }
+    .library-sidebar h3 { margin-bottom: 1.5rem; color: var(--charcoal); }
+    .library-categories { list-style: none; }
+    .library-categories li { margin-bottom: 0.5rem; }
+    .library-categories a { display: block; padding: 0.75rem 1rem; border-radius: var(--radius); color: var(--charcoal-light); text-decoration: none; font-weight: 500; transition: var(--transition); border: 1px solid transparent; cursor: pointer; }
+    .library-categories a:hover, .library-categories a.active { background: var(--emerald); color: var(--white); }
+    .book-card { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .book-cover { width: 100px; height: 140px; background: linear-gradient(135deg, var(--navy), var(--emerald-dark)); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; box-shadow: 0 4px 15px var(--shadow); }
+    .book-info h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+    .book-author { color: var(--emerald); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .book-desc { color: var(--charcoal-light); font-size: 0.9rem; margin-bottom: 1rem; }
+    .book-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .book-tag { padding: 0.25rem 0.75rem; background: var(--ivory); border-radius: 50px; font-size: 0.75rem; color: var(--charcoal-light); border: 1px solid rgba(15,118,110,0.15); }
+    .scholar-card { text-align: center; padding: 2.5rem; }
+    .scholar-avatar { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--white); border: 4px solid var(--ivory); box-shadow: 0 4px 15px var(--shadow); }
+    .scholar-card h3 { margin-bottom: 0.25rem; }
+    .scholar-card .scholar-title { color: var(--emerald); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .scholar-card p { font-size: 0.9rem; color: var(--charcoal-light); margin-bottom: 1.5rem; }
+    .companion-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--emerald-dark) 100%); color: var(--white); padding: 10rem 2rem 5rem; text-align: center; }
+    .companion-hero h1 { color: var(--white); }
+    .companion-hero p { color: rgba(255,255,255,0.8); }
+    .companion-card { border-left: 4px solid var(--gold); }
+    .companion-card .companion-number { font-size: 3rem; font-weight: 700; color: var(--gold); opacity: 0.3; position: absolute; top: 1rem; right: 1.5rem; }
+    .alphabet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; max-width: 900px; margin: 0 auto; }
+    .letter-box { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--ivory); border-radius: var(--radius); border: 2px solid rgba(15,118,110,0.1); transition: var(--transition); cursor: pointer; }
+    .letter-box:hover { background: var(--emerald); color: var(--white); transform: scale(1.05); border-color: var(--emerald); }
+    .letter-box .arabic { font-size: 2rem; margin-bottom: 0.25rem; }
+    .letter-box .translit { font-size: 0.75rem; color: var(--charcoal-light); }
+    .letter-box:hover .translit { color: rgba(255,255,255,0.8); }
+    .download-card { display: flex; align-items: center; gap: 1.5rem; }
+    .download-icon { width: 60px; height: 60px; border-radius: var(--radius); background: rgba(15,118,110,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--emerald); flex-shrink: 0; }
+    .download-info { flex: 1; }
+    .download-info h3 { margin-bottom: 0.25rem; }
+    .download-info p { font-size: 0.85rem; color: var(--charcoal-light); margin-bottom: 0.5rem; }
+    .download-meta { font-size: 0.75rem; color: var(--emerald); font-weight: 600; }
+    .about-content { max-width: 800px; margin: 0 auto; }
+    .about-content p { font-size: 1.1rem; color: var(--charcoal-light); margin-bottom: 1.5rem; line-height: 1.8; }
+    .about-values { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .value-card { text-align: center; padding: 2rem; }
+    .value-card .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+    .contact-info h3 { margin-bottom: 1.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-item .icon { width: 48px; height: 48px; border-radius: var(--radius); background: rgba(15,118,110,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--emerald); flex-shrink: 0; }
+    .contact-item h4 { margin-bottom: 0.25rem; }
+    .contact-item p { color: var(--charcoal-light); font-size: 0.9rem; }
+    .contact-form { background: var(--white); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: 0 4px 20px var(--shadow); }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.875rem 1rem; border-radius: var(--radius); border: 2px solid rgba(15,118,110,0.15); background: var(--ivory); font-size: 1rem; color: var(--charcoal); transition: var(--transition); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(15,118,110,0.1); }
+    .form-group textarea { min-height: 150px; resize: vertical; }
+    .search-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; align-items: flex-start; justify-content: center; padding-top: 10vh; backdrop-filter: blur(10px); }
+    .search-overlay.active { display: flex; }
+    .search-container { width: 90%; max-width: 700px; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+    .search-header { padding: 1.5rem; border-bottom: 1px solid var(--ivory-dark); display: flex; align-items: center; gap: 1rem; }
+    .search-header input { flex: 1; border: none; font-size: 1.2rem; background: transparent; color: var(--charcoal); }
+    .search-header input:focus { outline: none; }
+    .search-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--charcoal-light); }
+    .search-results { max-height: 400px; overflow-y: auto; padding: 1rem; }
+    .search-result-item { padding: 1rem; border-radius: var(--radius); cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 1rem; }
+    .search-result-item:hover { background: var(--ivory); }
+    .search-result-item .result-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(15,118,110,0.1); display: flex; align-items: center; justify-content: center; color: var(--emerald); flex-shrink: 0; }
+    .search-result-item h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .search-result-item p { font-size: 0.85rem; color: var(--charcoal-light); }
+    .search-result-item .result-type { font-size: 0.75rem; color: var(--emerald); font-weight: 600; background: rgba(15,118,110,0.1); padding: 0.15rem 0.5rem; border-radius: 50px; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .page { display: none; }
+    .page.active { display: block; }
+    @media (max-width: 1024px) {
+      .library-grid { grid-template-columns: 1fr; }
+      .library-sidebar { position: static; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .mission-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; width: 100%; background: var(--ivory); flex-direction: column; padding: 1rem 2rem; gap: 0; box-shadow: 0 10px 30px var(--shadow); border-top: 1px solid rgba(15,118,110,0.1); }
+      .nav-links.active { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 1rem 0; border-bottom: 1px solid var(--ivory-dark); }
+      .mobile-toggle { display: block; }
+      .search-bar { display: none; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; }
+      .roadmap::before { left: 20px; }
+      .roadmap-item { flex-direction: column !important; align-items: flex-start !important; padding-left: 50px; }
+      .roadmap-item:nth-child(even) .roadmap-content { text-align: left; }
+      .roadmap-dot { left: 20px !important; transform: translateX(-50%); }
+      .roadmap-content { width: 100%; }
+      .section { padding: 4rem 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--ivory); }
+    ::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--emerald-dark); }
+  </style>
+</head>
+<body>
+  <div class="geometric-bg"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">
+        <div class="logo-icon">&#10022;</div>
+        <span>Hanbali Knowledge</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showPage('home'); return false;" class="nav-link active" data-page="home">Home</a></li>
+        <li><a href="#" onclick="showPage('courses'); return false;" class="nav-link" data-page="courses">Courses</a></li>
+        <li><a href="#" onclick="showPage('library'); return false;" class="nav-link" data-page="library">Library</a></li>
+        <li><a href="#" onclick="showPage('articles'); return false;" class="nav-link" data-page="articles">Articles</a></li>
+        <li><a href="#" onclick="showPage('scholars'); return false;" class="nav-link" data-page="scholars">Scholars</a></li>
+        <li><a href="#" onclick="showPage('companions'); return false;" class="nav-link" data-page="companions">Companions</a></li>
+        <li><a href="#" onclick="showPage('arabic'); return false;" class="nav-link" data-page="arabic">Arabic</a></li>
+        <li><a href="#" onclick="showPage('downloads'); return false;" class="nav-link" data-page="downloads">Downloads</a></li>
+        <li><a href="#" onclick="showPage('about'); return false;" class="nav-link" data-page="about">About</a></li>
+        <li><a href="#" onclick="showPage('contact'); return false;" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" placeholder="Search... (Ctrl+K)" id="searchTrigger" readonly>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">&#9789;</button>
+        <button class="mobile-toggle" id="mobileToggle">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <div class="search-header">
+        <span style="color:var(--emerald);font-size:1.2rem;">&#128269;</span>
+        <input type="text" placeholder="Search courses, books, scholars..." id="searchInput" autocomplete="off">
+        <button class="search-close" id="searchClose">&#10005;</button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <p style="text-align:center;color:var(--charcoal-light);padding:2rem;">Type to search across courses, books, scholars, and more...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page active">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>&#10022;</span> Seek Knowledge Upon the Qur'an and Authentic Sunnah
+        </div>
+        <h1>The <span class="highlight">Hanbali Knowledge</span><br>Project</h1>
+        <p class="hero-quote">
+          <span class="arabic">&#1605;&#1614;&#1606;&#1618; &#1610;&#1615;&#1585;&#1616;&#1583;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615; &#1576;&#1616;&#1607;&#1616; &#1582;&#1614;&#1610;&#1618;&#1585;&#1575;&#1611; &#1610;&#1615;&#1601;&#1614;&#1602;&#1617;&#1616;&#1607;&#1618;&#1607;&#1615; &#1601;&#1616;&#1610; &#1575;&#1604;&#1583;&#1617;&#1616;&#1610;&#1606;&#1616;</span>
+          "Whoever Allah intends good for, He gives him understanding of the religion."
+          <br><span style="font-size:0.9rem;font-style:normal;color:var(--emerald);font-weight:600;">&#8212; Sahih al-Bukhari</span>
+        </p>
+        <div class="hero-buttons">
+          <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">Start Learning &#8594;</a>
+          <a href="#" onclick="showPage('library'); return false;" class="btn btn-outline">Browse Library</a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <span style="font-size:1.5rem;">&#8595;</span>
+      </div>
+    </section>
+
+    <section class="section mission-section">
+      <div class="section-header fade-in">
+        <span class="section-label">Our Mission</span>
+        <h2>Building Understanding, One Step at a Time</h2>
+        <p>A structured path to authentic Islamic knowledge following the methodology of the righteous predecessors.</p>
+      </div>
+      <div class="mission-content fade-in">
+        <div class="mission-text">
+          <p>The Hanbali Knowledge Project is dedicated to providing authentic Islamic education based on the Qur'an and the authentic Sunnah, according to the understanding of the righteous predecessors (Salaf as-Salih).</p>
+          <p>We follow the Hanbali school of jurisprudence (Fiqh), the creed of Ahl as-Sunnah wal-Jama'ah, and emphasize the importance of studying under qualified teachers with proper chains of narration.</p>
+          <p>Our curriculum is designed for gradual progression &#8212; from foundational knowledge to advanced studies &#8212; ensuring that every student builds a solid understanding before moving forward.</p>
+          <a href="#" onclick="showPage('about'); return false;" class="btn btn-outline btn-sm">Learn More About Us</a>
+        </div>
+        <div class="mission-stats">
+          <div class="stat-box"><span class="stat-number">8+</span><span class="stat-label">Core Courses</span></div>
+          <div class="stat-box"><span class="stat-number">50+</span><span class="stat-label">Books in Library</span></div>
+          <div class="stat-box"><span class="stat-number">6</span><span class="stat-label">Major Scholars</span></div>
+          <div class="stat-box"><span class="stat-number">4</span><span class="stat-label">Rightly Guided Caliphs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--ivory);">
+      <div class="section-header fade-in">
+        <span class="section-label">Curriculum</span>
+        <h2>Featured Courses</h2>
+        <p>Structured learning paths designed to take you from the foundations to advanced Islamic sciences.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card course-card">
+          <div class="course-img">&#9770;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Foundations of Islam</h3>
+          <p>The five pillars, articles of faith, and essential knowledge every Muslim must know.</p>
+          <div class="course-meta"><span>&#128336; 12 Lessons</span><span>&#9733; 4.9 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#1E3A5F,#2A4A73);">&#10022;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Aqeedah Fundamentals</h3>
+          <p>Understanding Tawhid, the names and attributes of Allah, and the methodology of the Salaf.</p>
+          <div class="course-meta"><span>&#128336; 20 Lessons</span><span>&#9733; 5.0 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#D4AF37,#E8C84A);">&#9878;</div>
+          <span class="course-level">Intermediate</span>
+          <h3>Hanbali Fiqh Essentials</h3>
+          <p>Purification, prayer, fasting, zakat, and hajj according to the Hanbali madhhab.</p>
+          <div class="course-meta"><span>&#128336; 40 Lessons</span><span>&#9733; 4.8 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#0D5C56,#14B8A6);">&#128214;</div>
+          <span class="course-level">Intermediate</span>
+          <h3>Hadith Studies</h3>
+          <p>Introduction to Mustalah al-Hadith, terminology, and selected hadith from Sahihayn.</p>
+          <div class="course-meta"><span>&#128336; 24 Lessons</span><span>&#9733; 4.9 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#1F2937,#374151);">&#128220;</div>
+          <span class="course-level">Advanced</span>
+          <h3>Tafsir al-Quran</h3>
+          <p>Methodology of Quranic exegesis with selected surahs studied in depth.</p>
+          <div class="course-meta"><span>&#128336; 36 Lessons</span><span>&#9733; 5.0 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#B8962E,#D4AF37);">&#9876;</div>
+          <span class="course-level">All Levels</span>
+          <h3>Seerah & History</h3>
+          <p>The life of the Prophet Muhammad (peace be upon him) and the righteous Caliphate.</p>
+          <div class="course-meta"><span>&#128336; 30 Lessons</span><span>&#9733; 4.7 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#0F766E,#1E3A5F);">&#1593;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Arabic Language</h3>
+          <p>From alphabet to grammar &#8212; learn the language of the Quran with a structured approach.</p>
+          <div class="course-meta"><span>&#128336; 50 Lessons</span><span>&#9733; 4.8 Rating</span></div>
+        </div>
+        <div class="card course-card">
+          <div class="course-img" style="background:linear-gradient(135deg,#2A4A73,#0F766E);">&#9825;</div>
+          <span class="course-level">All Levels</span>
+          <h3>Islamic Manners</h3>
+          <p>Adab in seeking knowledge, dealing with people, and purifying the heart according to the Sunnah.</p>
+          <div class="course-meta"><span>&#128336; 15 Lessons</span><span>&#9733; 4.9 Rating</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="#" onclick="showPage('courses'); return false;" class="btn btn-primary">View All Courses &#8594;</a>
+      </div>
+    </section>
+
+    <section class="section daily-section">
+      <div class="section-header fade-in">
+        <span class="section-label">Daily Inspiration</span>
+        <h2>Today's Reflections</h2>
+        <p>Nourish your soul with daily verses and authentic narrations from the Prophet.</p>
+      </div>
+      <div class="daily-grid fade-in">
+        <div class="daily-card">
+          <h3>&#128220; Qur'an Reflection</h3>
+          <p class="arabic">&#1573;&#1616;&#1606;&#1617;&#1614;&#1605;&#1614;&#1575; &#1610;&#1614;&#1582;&#1618;&#1588;&#1614;&#1609; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1614; &#1605;&#1616;&#1606;&#1618; &#1593;&#1616;&#1576;&#1614;&#1575;&#1583;&#1616;&#1607;&#1616; &#1575;&#1604;&#1618;&#1593;&#1615;&#1604;&#1614;&#1605;&#1614;&#1575;&#1569;&#1615;</p>
+          <p class="translation">"Indeed, those who fear Allah among His servants are the knowledgeable."</p>
+          <p class="reference">Surah Fatir (35:28)</p>
+          <p class="explanation">True knowledge leads to the fear of Allah. The more one knows about Allah's names, attributes, and the magnitude of His power, the more one fears Him in worship and obedience.</p>
+        </div>
+        <div class="daily-card">
+          <h3>&#128220; Daily Hadith</h3>
+          <p class="arabic">&#1591;&#1614;&#1604;&#1614;&#1576;&#1615; &#1575;&#1604;&#1618;&#1593;&#1616;&#1604;&#1618;&#1605;&#1616; &#1601;&#1614;&#1585;&#1616;&#1610;&#1590;&#1614;&#1577;&#1612; &#1593;&#1614;&#1604;&#1614;&#1609; &#1603;&#1615;&#1604;&#1616;&#1617; &#1605;&#1615;&#1587;&#1618;&#1604;&#1616;&#1605;&#1613;</p>
+          <p class="translation">"Seeking knowledge is an obligation upon every Muslim."</p>
+          <p class="reference">Sunan Ibn Majah (224)</p>
+          <p class="explanation">The Prophet (peace be upon him) made the seeking of knowledge obligatory for every Muslim. This knowledge refers to what is necessary for the correct practice of one's religion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="section-header fade-in">
+        <span class="section-label">Featured Book</span>
+        <h2>Book of the Month</h2>
+      </div>
+      <div class="fade-in" style="max-width:900px;margin:0 auto;display:flex;gap:3rem;align-items:center;flex-wrap:wrap;">
+        <div style="flex:0 0 200px;">
+          <div style="width:200px;height:280px;background:linear-gradient(135deg,var(--navy),var(--emerald-dark));border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold);box-shadow:0 20px 40px var(--shadow-lg);">
+            <span style="font-size:3rem;margin-bottom:1rem;">&#10022;</span>
+            <span style="font-family:'Merriweather',serif;font-size:1.1rem;text-align:center;padding:0 1rem;">Riyadh as-Salihin</span>
+            <span style="font-size:0.8rem;opacity:0.7;margin-top:0.5rem;">Imam an-Nawawi</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:300px;">
+          <h3 style="margin-bottom:1rem;">Riyadh as-Salihin</h3>
+          <p style="color:var(--charcoal-light);margin-bottom:1rem;"><strong>Author:</strong> Imam Yahya ibn Sharaf an-Nawawi (d. 676 AH)</p>
+          <p style="color:var(--charcoal-light);margin-bottom:1.5rem;line-height:1.8;">Gardens of the Righteous is one of the most celebrated collections of hadith, organized by themes covering every aspect of a Muslim's life.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+            <span class="book-tag">Hadith</span><span class="book-tag">Fiqh</span><span class="book-tag">Manners</span><span class="book-tag">Intermediate</span>
+          </div>
+          <a href="#" onclick="showPage('library'); return false;" class="btn btn-primary btn-sm">View in Library</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--ivory);">
+      <div class="section-header fade-in">
+        <span class="section-label">Latest</span>
+        <h2>Recent Articles</h2>
+        <p>Beneficial lessons and reflections to strengthen your understanding.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card">
+          <div class="card-icon">&#128221;</div>
+          <h3>The Importance of Studying Aqeedah First</h3>
+          <p>Why creed must be the foundation of all Islamic learning, and how it protects the student from deviation.</p>
+          <div class="card-meta"><span>&#128197; June 15, 2026</span><span>&#128336; 8 min read</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#9878;</div>
+          <h3>Understanding the Hanbali Madhhab</h3>
+          <p>An introduction to the principles and methodology of the Hanbali school of jurisprudence.</p>
+          <div class="card-meta"><span>&#128197; June 10, 2026</span><span>&#128336; 12 min read</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#128214;</div>
+          <h3>How to Memorize the Quran Effectively</h3>
+          <p>Practical strategies and spiritual preparations for successful Quran memorization.</p>
+          <div class="card-meta"><span>&#128197; June 5, 2026</span><span>&#128336; 6 min read</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="#" onclick="showPage('articles'); return false;" class="btn btn-outline">View All Articles &#8594;</a>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--white);">
+      <div class="section-header fade-in">
+        <span class="section-label">Pathway</span>
+        <h2>Learning Roadmap</h2>
+        <p>A structured journey from the foundations to advanced Islamic sciences.</p>
+      </div>
+      <div class="roadmap fade-in">
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <span class="roadmap-level">Level 1</span>
+            <h4>Foundations</h4>
+            <p>Five pillars, articles of faith, basic fiqh of purification and prayer, and essential dua.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <span class="roadmap-level">Level 2</span>
+            <h4>Essential Knowledge</h4>
+            <p>Aqeedah fundamentals, continuation of fiqh, introduction to hadith, and basic Arabic grammar.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <span class="roadmap-level">Level 3</span>
+            <h4>Intermediate Studies</h4>
+            <p>Advanced fiqh, Usul al-Fiqh, Mustalah al-Hadith, Tafsir methodology, and intermediate Arabic.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <span class="roadmap-level">Level 4</span>
+            <h4>Advanced Studies</h4>
+            <p>Detailed fiqh from classical texts, advanced hadith criticism, Quranic sciences, and classical Arabic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <h2>Stay Connected</h2>
+      <p>Receive updates whenever new lessons, articles, and resources are published.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- COURSES PAGE -->
+  <div id="courses" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Curriculum</span>
+        <h1>Our Courses</h1>
+        <p>Structured learning paths designed to take you from the foundations of Islam to advanced Islamic sciences.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:0;">
+      <div class="course-filters fade-in">
+        <button class="filter-btn active" data-filter="all" onclick="filterCourses('all', this)">All Courses</button>
+        <button class="filter-btn" data-filter="beginner" onclick="filterCourses('beginner', this)">Beginner</button>
+        <button class="filter-btn" data-filter="intermediate" onclick="filterCourses('intermediate', this)">Intermediate</button>
+        <button class="filter-btn" data-filter="advanced" onclick="filterCourses('advanced', this)">Advanced</button>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem;">
+      <div class="card-grid fade-in">
+        <div class="card course-card" data-category="beginner">
+          <div class="course-img">&#9770;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Foundations of Islam</h3>
+          <p>The five pillars, articles of faith, and essential knowledge every Muslim must know.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>The Five Pillars of Islam</li><li>The Six Articles of Faith</li><li>Purification & Prayer essentials</li><li>Basic Islamic etiquette</li></ul></div>
+          <div class="course-meta"><span>&#128336; 12 Lessons</span><span>&#9733; 4.9 Rating</span><span>&#128218; 3 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="beginner">
+          <div class="course-img" style="background:linear-gradient(135deg,#1E3A5F,#2A4A73);">&#10022;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Aqeedah Fundamentals</h3>
+          <p>Understanding Tawhid, the names and attributes of Allah, and the methodology of the Salaf.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Categories of Tawhid</li><li>Allah's Names & Attributes</li><li>Qadar (Divine Decree)</li><li>Manhaj of the Salaf</li></ul></div>
+          <div class="course-meta"><span>&#128336; 20 Lessons</span><span>&#9733; 5.0 Rating</span><span>&#128218; 4 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="intermediate">
+          <div class="course-img" style="background:linear-gradient(135deg,#D4AF37,#E8C84A);">&#9878;</div>
+          <span class="course-level">Intermediate</span>
+          <h3>Hanbali Fiqh Essentials</h3>
+          <p>Purification, prayer, fasting, zakat, and hajj according to the Hanbali madhhab.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Detailed rulings of Taharah</li><li>Salah: conditions, pillars, sunan</li><li>Sawm & Zakat rulings</li><li>Hajj & Umrah procedures</li></ul></div>
+          <div class="course-meta"><span>&#128336; 40 Lessons</span><span>&#9733; 4.8 Rating</span><span>&#128218; 5 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="intermediate">
+          <div class="course-img" style="background:linear-gradient(135deg,#0D5C56,#14B8A6);">&#128214;</div>
+          <span class="course-level">Intermediate</span>
+          <h3>Hadith Studies</h3>
+          <p>Introduction to Mustalah al-Hadith, terminology, and studying selected hadith.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Hadith terminology</li><li>Types of hadith</li><li>Selected hadith from Sahihayn</li><li>Introduction to narrators</li></ul></div>
+          <div class="course-meta"><span>&#128336; 24 Lessons</span><span>&#9733; 4.9 Rating</span><span>&#128218; 3 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="advanced">
+          <div class="course-img" style="background:linear-gradient(135deg,#1F2937,#374151);">&#128220;</div>
+          <span class="course-level">Advanced</span>
+          <h3>Tafsir al-Quran</h3>
+          <p>Methodology of Quranic exegesis with selected surahs studied in depth.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Usul at-Tafsir</li><li>Tafsir of Surah al-Fatiha</li><li>Tafsir of Juz Amma</li><li>Comparative tafsir methodology</li></ul></div>
+          <div class="course-meta"><span>&#128336; 36 Lessons</span><span>&#9733; 5.0 Rating</span><span>&#128218; 6 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="all">
+          <div class="course-img" style="background:linear-gradient(135deg,#B8962E,#D4AF37);">&#9876;</div>
+          <span class="course-level">All Levels</span>
+          <h3>Seerah & History</h3>
+          <p>The life of the Prophet Muhammad and the history of the righteous Caliphate.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Pre-Islamic Arabia</li><li>The Makkan period</li><li>The Madinan period</li><li>The Rightly Guided Caliphs</li></ul></div>
+          <div class="course-meta"><span>&#128336; 30 Lessons</span><span>&#9733; 4.7 Rating</span><span>&#128218; 4 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="beginner">
+          <div class="course-img" style="background:linear-gradient(135deg,#0F766E,#1E3A5F);">&#1593;</div>
+          <span class="course-level">Beginner</span>
+          <h3>Arabic Language</h3>
+          <p>From alphabet to grammar — learn the language of the Quran with a structured approach.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Arabic alphabet & pronunciation</li><li>Basic vocabulary</li><li>Essential grammar (Nahw)</li><li>Quranic Arabic foundations</li></ul></div>
+          <div class="course-meta"><span>&#128336; 50 Lessons</span><span>&#9733; 4.8 Rating</span><span>&#128218; 3 Books</span></div>
+        </div>
+        <div class="card course-card" data-category="all">
+          <div class="course-img" style="background:linear-gradient(135deg,#2A4A73,#0F766E);">&#9825;</div>
+          <span class="course-level">All Levels</span>
+          <h3>Islamic Manners</h3>
+          <p>Adab in seeking knowledge, dealing with people, and purifying the heart according to the Sunnah.</p>
+          <div style="margin:1rem 0;"><h4 style="font-size:0.9rem;color:var(--emerald);margin-bottom:0.5rem;">What You'll Learn:</h4><ul style="color:var(--charcoal-light);font-size:0.9rem;padding-left:1.2rem;line-height:1.8;"><li>Adab of seeking knowledge</li><li>Etiquette with parents & elders</li><li>Dealing with Muslims & non-Muslims</li><li>Heart purification (Tazkiyah)</li></ul></div>
+          <div class="course-meta"><span>&#128336; 15 Lessons</span><span>&#9733; 4.9 Rating</span><span>&#128218; 2 Books</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LIBRARY PAGE -->
+  <div id="library" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Resources</span>
+        <h1>Islamic Library</h1>
+        <p>A curated collection of classical and contemporary Islamic texts, organized by subject.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="library-grid fade-in">
+        <aside class="library-sidebar">
+          <h3>Categories</h3>
+          <ul class="library-categories">
+            <li><a href="#" class="active" onclick="filterBooks('all', this); return false;">All Books</a></li>
+            <li><a href="#" onclick="filterBooks('quran', this); return false;">Qur'an & Tafsir</a></li>
+            <li><a href="#" onclick="filterBooks('aqeedah', this); return false;">Aqeedah</a></li>
+            <li><a href="#" onclick="filterBooks('fiqh', this); return false;">Fiqh</a></li>
+            <li><a href="#" onclick="filterBooks('hadith', this); return false;">Hadith</a></li>
+            <li><a href="#" onclick="filterBooks('seerah', this); return false;">Seerah</a></li>
+            <li><a href="#" onclick="filterBooks('arabic', this); return false;">Arabic</a></li>
+            <li><a href="#" onclick="filterBooks('manners', this); return false;">Manners</a></li>
+          </ul>
+        </aside>
+        <div class="books-container">
+          <div class="card-grid" style="grid-template-columns:1fr;">
+            <div class="card book-card-wrapper" data-category="quran">
+              <div class="book-card"><div class="book-cover">&#128220;</div>
+                <div class="book-info"><h3>Tafsir Ibn Kathir</h3><p class="book-author">Imam Ibn Kathir (d. 774 AH)</p><p class="book-desc">One of the most comprehensive tafasir, based on narrations from the Prophet, Companions, and Tabi'in.</p><div class="book-tags"><span class="book-tag">Tafsir</span><span class="book-tag">Advanced</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="quran">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));">&#128220;</div>
+                <div class="book-info"><h3>Tafsir as-Sa'di</h3><p class="book-author">Sheikh Abd ar-Rahman as-Sa'di (d. 1376 AH)</p><p class="book-desc">A concise yet comprehensive tafsir known for clarity and accessibility. Excellent for students.</p><div class="book-tags"><span class="book-tag">Tafsir</span><span class="book-tag">Intermediate</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="aqeedah">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#1E3A5F,var(--navy));">&#10022;</div>
+                <div class="book-info"><h3>Al-Aqeedah al-Wasitiyyah</h3><p class="book-author">Ibn Taymiyyah (d. 728 AH)</p><p class="book-desc">Foundational text on Islamic creed covering Tawhid, names and attributes of Allah.</p><div class="book-tags"><span class="book-tag">Aqeedah</span><span class="book-tag">Intermediate</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="aqeedah">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--gold),#E8C84A);">&#10022;</div>
+                <div class="book-info"><h3>Kitab at-Tawhid</h3><p class="book-author">Muhammad ibn Abdul Wahhab (d. 1206 AH)</p><p class="book-desc">The foundational book on monotheism, explaining the three categories of Tawhid.</p><div class="book-tags"><span class="book-tag">Aqeedah</span><span class="book-tag">Beginner</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="aqeedah">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#0D5C56,var(--emerald-dark));">&#10022;</div>
+                <div class="book-info"><h3>Sharh al-Aqeedah at-Tahawiyyah</h3><p class="book-author">Imam at-Tahawi (d. 321 AH)</p><p class="book-desc">Classical text on Islamic creed accepted by all four schools. Presents orthodox Sunni creed.</p><div class="book-tags"><span class="book-tag">Aqeedah</span><span class="book-tag">Intermediate</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="fiqh">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#D4AF37,#B8962E);">&#9878;</div>
+                <div class="book-info"><h3>Zad al-Mustaqni'</h3><p class="book-author">Musa al-Hajjawi (d. 968 AH)</p><p class="book-desc">Comprehensive summary of Hanbali fiqh. One of the most important texts in the Hanbali school.</p><div class="book-tags"><span class="book-tag">Fiqh</span><span class="book-tag">Advanced</span><span class="book-tag">Hanbali</span><span class="book-tag">Arabic</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="fiqh">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--emerald),var(--navy));">&#9878;</div>
+                <div class="book-info"><h3>Al-Muqni'</h3><p class="book-author">Imam Ibn Qudamah (d. 620 AH)</p><p class="book-desc">Foundational text in Hanbali fiqh, more concise than Zad al-Mustaqni' but covering all essentials.</p><div class="book-tags"><span class="book-tag">Fiqh</span><span class="book-tag">Intermediate</span><span class="book-tag">Hanbali</span><span class="book-tag">Arabic</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="fiqh">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#1F2937,#374151);">&#9878;</div>
+                <div class="book-info"><h3>Fiqh us-Sunnah</h3><p class="book-author">Sayyid Sabiq (d. 1421 AH)</p><p class="book-desc">Comprehensive work on fiqh derived directly from Quran and authentic Sunnah.</p><div class="book-tags"><span class="book-tag">Fiqh</span><span class="book-tag">Beginner</span><span class="book-tag">English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="hadith">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--navy),var(--emerald-dark));">&#128214;</div>
+                <div class="book-info"><h3>Musnad Ahmad</h3><p class="book-author">Imam Ahmad ibn Hanbal (d. 241 AH)</p><p class="book-desc">One of the most important collections of hadith, arranged by Companions. Contains ~30,000 hadith.</p><div class="book-tags"><span class="book-tag">Hadith</span><span class="book-tag">Advanced</span><span class="book-tag">Arabic</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="hadith">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--gold),#E8C84A);">&#128214;</div>
+                <div class="book-info"><h3>Riyadh as-Salihin</h3><p class="book-author">Imam an-Nawawi (d. 676 AH)</p><p class="book-desc">Gardens of the Righteous — ~1,900 hadith arranged by themes covering every aspect of a Muslim's life.</p><div class="book-tags"><span class="book-tag">Hadith</span><span class="book-tag">Intermediate</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="hadith">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,var(--emerald),#14B8A6);">&#128214;</div>
+                <div class="book-info"><h3>Sahih al-Bukhari</h3><p class="book-author">Imam Muhammad al-Bukhari (d. 256 AH)</p><p class="book-desc">The most authentic book after the Quran. 7,563 hadith with rigorous authentication methodology.</p><div class="book-tags"><span class="book-tag">Hadith</span><span class="book-tag">Advanced</span><span class="book-tag">Arabic/English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="seerah">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#B8962E,var(--gold));">&#9876;</div>
+                <div class="book-info"><h3>Ar-Raheeq al-Makhtum</h3><p class="book-author">Sheikh Safiur-Rahman Mubarakpuri</p><p class="book-desc">The Sealed Nectar — award-winning biography of the Prophet Muhammad with authenticated sources.</p><div class="book-tags"><span class="book-tag">Seerah</span><span class="book-tag">All Levels</span><span class="book-tag">English</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="arabic">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#0F766E,#1E3A5F);">&#1593;</div>
+                <div class="book-info"><h3>Al-Arabiyyah Bayna Yadayk</h3><p class="book-author">Dr. Abdul Rahman ibn Ibrahim al-Fuzan</p><p class="book-desc">Comprehensive Arabic course for non-native speakers. Communicative approach with Islamic context.</p><div class="book-tags"><span class="book-tag">Arabic</span><span class="book-tag">Beginner</span><span class="book-tag">Arabic</span></div></div>
+              </div>
+            </div>
+            <div class="card book-card-wrapper" data-category="manners">
+              <div class="book-card"><div class="book-cover" style="background:linear-gradient(135deg,#2A4A73,var(--emerald));">&#9825;</div>
+                <div class="book-info"><h3>Adab ash-Shar'iyyah</h3><p class="book-author">Ibn Muflih al-Hanbali (d. 884 AH)</p><p class="book-desc">Comprehensive work on Islamic manners covering every aspect of a Muslim's conduct.</p><div class="book-tags"><span class="book-tag">Manners</span><span class="book-tag">Intermediate</span><span class="book-tag">Arabic</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ARTICLES PAGE -->
+  <div id="articles" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Lessons & Reflections</span>
+        <h1>Articles</h1>
+        <p>Beneficial writings to strengthen your understanding and purify your heart.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="card-grid fade-in">
+        <div class="card"><div class="card-icon">&#128221;</div><h3>The Importance of Studying Aqeedah First</h3><p>Why creed must be the foundation of all Islamic learning, and how it protects the student from deviation.</p><div class="card-meta"><span>&#128197; June 15, 2026</span><span>&#128336; 8 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#9878;</div><h3>Understanding the Hanbali Madhhab</h3><p>An introduction to the principles and methodology of the Hanbali school of jurisprudence.</p><div class="card-meta"><span>&#128197; June 10, 2026</span><span>&#128336; 12 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#128214;</div><h3>How to Memorize the Quran Effectively</h3><p>Practical strategies and spiritual preparations for successful Quran memorization.</p><div class="card-meta"><span>&#128197; June 5, 2026</span><span>&#128336; 6 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(15,118,110,0.1);color:var(--emerald);">&#10022;</div><h3>The Three Categories of Tawhid</h3><p>A detailed explanation of Tawhid ar-Rububiyyah, Tawhid al-Uluhiyyah, and Tawhid al-Asma' was-Sifat.</p><div class="card-meta"><span>&#128197; May 28, 2026</span><span>&#128336; 10 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#9825;</div><h3>Adab of Seeking Knowledge</h3><p>The etiquettes and manners every student of knowledge must observe.</p><div class="card-meta"><span>&#128197; May 20, 2026</span><span>&#128336; 7 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(31,41,55,0.1);color:var(--charcoal);">&#128220;</div><h3>The Virtues of the Night Prayer</h3><p>Exploring the immense rewards and spiritual benefits of Qiyam al-Layl.</p><div class="card-meta"><span>&#128197; May 15, 2026</span><span>&#128336; 5 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#9876;</div><h3>Lessons from the Hijrah</h3><p>Reflecting on the migration of the Prophet and profound lessons for Muslims today.</p><div class="card-meta"><span>&#128197; May 8, 2026</span><span>&#128336; 9 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(15,118,110,0.1);color:var(--emerald);">&#1593;</div><h3>Why Every Muslim Should Learn Arabic</h3><p>The importance of understanding the language of the Quran. Practical steps to begin.</p><div class="card-meta"><span>&#128197; May 1, 2026</span><span>&#128336; 6 min read</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#128214;</div><h3>Introduction to Mustalah al-Hadith</h3><p>Understanding the terminology and science of hadith criticism.</p><div class="card-meta"><span>&#128197; April 22, 2026</span><span>&#128336; 11 min read</span></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SCHOLARS PAGE -->
+  <div id="scholars" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">The Inheritors of the Prophets</span>
+        <h1>Great Scholars</h1>
+        <p>"The scholars are the inheritors of the Prophets." — Authentic Hadith</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-header fade-in">
+        <span class="section-label">Biographies</span>
+        <h2>Scholars of Ahl as-Sunnah</h2>
+        <p>Learn about the lives, contributions, and works of the scholars who preserved authentic Islamic knowledge.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card scholar-card">
+          <div class="scholar-avatar">&#1571;</div>
+          <h3>Imam Ahmad ibn Hanbal</h3>
+          <p class="scholar-title">Founder of the Hanbali School (164-241 AH)</p>
+          <p>One of the four great Imams of Islamic jurisprudence and a towering figure in hadith scholarship. He endured severe persecution under the Mihna for refusing to affirm the createdness of the Quran. His Musnad contains ~30,000 hadith.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Musnad Ahmad, Kitab as-Sunnah, Ar-Radd 'ala al-Jahmiyyah</p></div>
+        </div>
+        <div class="card scholar-card">
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--navy),var(--emerald-dark));">&#1578;</div>
+          <h3>Ibn Taymiyyah</h3>
+          <p class="scholar-title">Shaykh al-Islam (661-728 AH)</p>
+          <p>A prolific scholar of unmatched breadth in Aqeedah, Fiqh, Hadith, and Tafsir. He dedicated his life to reviving the methodology of the Salaf and refuting innovations. Produced hundreds of works.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Al-Aqeedah al-Wasitiyyah, Al-Fatawa al-Kubra, Minhaj as-Sunnah</p></div>
+        </div>
+        <div class="card scholar-card">
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--gold),#E8C84A);">&#1602;</div>
+          <h3>Ibn al-Qayyim</h3>
+          <p class="scholar-title">The Student of Ibn Taymiyyah (691-751 AH)</p>
+          <p>A brilliant scholar, poet, and physician who was the closest student of Ibn Taymiyyah. His works uniquely combine deep knowledge with spiritual insight. Most famous work: Madarij as-Salikin.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Madarij as-Salikin, Zad al-Ma'ad, Al-Fawaid</p></div>
+        </div>
+        <div class="card scholar-card">
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,#0D5C56,var(--emerald));">&#1576;</div>
+          <h3>Sheikh Ibn Baz</h3>
+          <p class="scholar-title">Grand Mufti of Saudi Arabia (1330-1420 AH)</p>
+          <p>Former Grand Mufti and member of the Council of Senior Scholars. Known for vast knowledge, humility, and dedication to teaching. Issued thousands of fatawa and authored numerous books.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Majmu' Fatawa, Sharh Bulugh al-Maram, Tawhid treatises</p></div>
+        </div>
+        <div class="card scholar-card">
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--navy),#2A4A73);">&#1571;</div>
+          <h3>Muhammad Nasir al-Din al-Albani</h3>
+          <p class="scholar-title">The Muhaddith of the Era (1332-1420 AH)</p>
+          <p>The preeminent hadith scholar of the 20th century. Dedicated his life to distinguishing authentic from weak narrations. Produced over 100 works on hadith and its sciences.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Silsilah as-Saheehah, Silsilah ad-Da'ifah, Sahih at-Targhib</p></div>
+        </div>
+        <div class="card scholar-card">
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,#1F2937,#374151);">&#1601;</div>
+          <h3>Salih al-Fawzan</h3>
+          <p class="scholar-title">Member of the Council of Senior Scholars (b. 1354 AH)</p>
+          <p>Member of the Council of Senior Scholars in Saudi Arabia. Leading scholar of Aqeedah and Fiqh. Regularly teaches at the Grand Mosque in Makkah. His explanations of classical texts are widely studied.</p>
+          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;margin-bottom:0.5rem;">Key Works:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Aqeedah at-Tawhid, Sharh al-Aqeedah al-Wasitiyyah, Fatawa</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- COMPANIONS PAGE -->
+  <div id="companions" class="page">
+    <section class="companion-hero">
+      <div class="page-hero-content">
+        <span class="section-label">The Best of Generations</span>
+        <h1>The Rightly Guided Caliphs</h1>
+        <p>"The best of my Ummah is my generation, then those who follow them, then those who follow them." — Sahih al-Bukhari</p>
+      </div>
+    </section>
+    <section class="section" style="background:var(--ivory);">
+      <div class="section-header fade-in">
+        <span class="section-label">May Allah Be Pleased With Them</span>
+        <h2>The Four Caliphs</h2>
+        <p>The successors of the Prophet Muhammad (peace be upon him) who led the Muslim Ummah with justice.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card companion-card">
+          <div class="companion-number">1</div>
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));">&#1571;</div>
+          <h3>Abu Bakr as-Siddiq</h3>
+          <p class="scholar-title">The First Caliph (573-634 CE)</p>
+          <p>Abdullah ibn Uthman, known as Abu Bakr as-Siddiq (The Truthful), was the closest companion of the Prophet. He was the first adult male to accept Islam and remained the Prophet's most steadfast supporter.</p>
+          <p style="margin-top:1rem;font-size:0.9rem;color:var(--charcoal-light);">During his caliphate (632-634 CE), he successfully suppressed the Ridda Wars and initiated the compilation of the Quran. Known for extreme generosity. The Prophet said: "If I were to take a Khalil, I would have taken Abu Bakr."</p>
+          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;">Key Contributions:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Compilation of the Quran, Unification of Arabia, Establishment of the Caliphate</p></div>
+        </div>
+        <div class="card companion-card">
+          <div class="companion-number">2</div>
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--navy),#2A4A73);">&#1593;</div>
+          <h3>Umar ibn al-Khattab</h3>
+          <p class="scholar-title">The Second Caliph (584-644 CE)</p>
+          <p>Umar ibn al-Khattab, known as al-Faruq (The One Who Distinguishes Between Truth and Falsehood), was a towering figure whose conversion strengthened the Muslim community immensely.</p>
+          <p style="margin-top:1rem;font-size:0.9rem;color:var(--charcoal-light);">During his caliphate (634-644 CE), the Islamic empire expanded to include Persia, Egypt, and the Levant. He established the Islamic calendar (Hijri), introduced the Diwan, and founded Basra and Kufa. The Prophet said: "If there were to be a Prophet after me, it would be Umar."</p>
+          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;">Key Contributions:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Islamic calendar, Administrative reforms, Expansion of the Caliphate</p></div>
+        </div>
+        <div class="card companion-card">
+          <div class="companion-number">3</div>
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,var(--gold),#E8C84A);">&#1593;</div>
+          <h3>Uthman ibn Affan</h3>
+          <p class="scholar-title">The Third Caliph (576-656 CE)</p>
+          <p>Uthman ibn Affan, known as Dhun-Nurayn (The Possessor of Two Lights) because he married two of the Prophet's daughters, was known for his modesty, generosity, and deep love for the Quran.</p>
+          <p style="margin-top:1rem;font-size:0.9rem;color:var(--charcoal-light);">During his caliphate (644-656 CE), he oversaw the standardization of the Quran into one official copy (Mushaf Uthmani). He was martyred while reading the Quran. The Prophet said: "Every Prophet has a companion, and my companion in Paradise is Uthman."</p>
+          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;">Key Contributions:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Standardization of the Quran (Mushaf Uthmani), Naval expansion</p></div>
+        </div>
+        <div class="card companion-card">
+          <div class="companion-number">4</div>
+          <div class="scholar-avatar" style="background:linear-gradient(135deg,#0D5C56,var(--emerald-dark));">&#1593;</div>
+          <h3>Ali ibn Abi Talib</h3>
+          <p class="scholar-title">The Fourth Caliph (601-661 CE)</p>
+          <p>Ali ibn Abi Talib, the cousin and son-in-law of the Prophet, was the first child to accept Islam. He was known as the "Gate of Knowledge" for his profound understanding of the Quran and Sunnah.</p>
+          <p style="margin-top:1rem;font-size:0.9rem;color:var(--charcoal-light);">During his caliphate (656-661 CE), he faced immense challenges including civil strife. He ruled with justice and wisdom, leaving behind a legacy of knowledge, bravery, and piety. He was martyred while praying Fajr. The Prophet said: "I am the city of knowledge and Ali is its gate."</p>
+          <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--ivory-dark);"><p style="font-size:0.85rem;color:var(--emerald);font-weight:600;">Key Contributions:</p><p style="font-size:0.85rem;color:var(--charcoal-light);">Vast knowledge transmission, Judicial wisdom, Military leadership</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ARABIC PAGE -->
+  <div id="arabic" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">&#1593;&#1604;&#1617;&#1605; &#1575;&#1604;&#1604;&#1617;&#1594;&#1577; &#1575;&#1604;&#1593;&#1614;&#1585;&#1614;&#1576;&#1616;&#1610;&#1617;&#1614;&#1577;</span>
+        <h1>Learn Arabic</h1>
+        <p>The language of the Quran and the key to understanding your religion directly from its sources.</p>
+      </div>
+    </section>
+    <section class="section" style="background:var(--white);">
+      <div class="section-header fade-in">
+        <span class="section-label">The Foundation</span>
+        <h2>The Arabic Alphabet</h2>
+        <p>Master the 28 letters of the Arabic language — the first step toward understanding the Quran.</p>
+      </div>
+      <div class="alphabet-grid fade-in">
+        <div class="letter-box"><span class="arabic">&#1571;</span><span class="translit">Alif</span></div>
+        <div class="letter-box"><span class="arabic">&#1576;</span><span class="translit">Ba</span></div>
+        <div class="letter-box"><span class="arabic">&#1578;</span><span class="translit">Ta</span></div>
+        <div class="letter-box"><span class="arabic">&#1579;</span><span class="translit">Tha</span></div>
+        <div class="letter-box"><span class="arabic">&#1580;</span><span class="translit">Jeem</span></div>
+        <div class="letter-box"><span class="arabic">&#1581;</span><span class="translit">Ha</span></div>
+        <div class="letter-box"><span class="arabic">&#1582;</span><span class="translit">Kha</span></div>
+        <div class="letter-box"><span class="arabic">&#1583;</span><span class="translit">Dal</span></div>
+        <div class="letter-box"><span class="arabic">&#1584;</span><span class="translit">Dhal</span></div>
+        <div class="letter-box"><span class="arabic">&#1585;</span><span class="translit">Ra</span></div>
+        <div class="letter-box"><span class="arabic">&#1586;</span><span class="translit">Zay</span></div>
+        <div class="letter-box"><span class="arabic">&#1587;</span><span class="translit">Seen</span></div>
+        <div class="letter-box"><span class="arabic">&#1588;</span><span class="translit">Sheen</span></div>
+        <div class="letter-box"><span class="arabic">&#1589;</span><span class="translit">Sad</span></div>
+        <div class="letter-box"><span class="arabic">&#1590;</span><span class="translit">Dad</span></div>
+        <div class="letter-box"><span class="arabic">&#1591;</span><span class="translit">Ta</span></div>
+        <div class="letter-box"><span class="arabic">&#1592;</span><span class="translit">Dha</span></div>
+        <div class="letter-box"><span class="arabic">&#1593;</span><span class="translit">Ayn</span></div>
+        <div class="letter-box"><span class="arabic">&#1594;</span><span class="translit">Ghayn</span></div>
+        <div class="letter-box"><span class="arabic">&#1601;</span><span class="translit">Fa</span></div>
+        <div class="letter-box"><span class="arabic">&#1602;</span><span class="translit">Qaf</span></div>
+        <div class="letter-box"><span class="arabic">&#1603;</span><span class="translit">Kaf</span></div>
+        <div class="letter-box"><span class="arabic">&#1604;</span><span class="translit">Lam</span></div>
+        <div class="letter-box"><span class="arabic">&#1605;</span><span class="translit">Meem</span></div>
+        <div class="letter-box"><span class="arabic">&#1606;</span><span class="translit">Noon</span></div>
+        <div class="letter-box"><span class="arabic">&#1607;</span><span class="translit">Ha</span></div>
+        <div class="letter-box"><span class="arabic">&#1608;</span><span class="translit">Waw</span></div>
+        <div class="letter-box"><span class="arabic">&#1610;</span><span class="translit">Ya</span></div>
+      </div>
+    </section>
+    <section class="section" style="background:var(--ivory);">
+      <div class="section-header fade-in">
+        <span class="section-label">Learning Paths</span>
+        <h2>Arabic Curriculum</h2>
+        <p>Structured progression from basic reading to advanced classical Arabic.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card"><div class="card-icon">&#128218;</div><h3>Reading Practice</h3><p>Learn to read Arabic script fluently with proper pronunciation (Makhraj). Practice with common words and short Quranic verses.</p><div class="card-meta"><span>&#128336; 20 Lessons</span><span>&#9733; Beginner</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#128221;</div><h3>Vocabulary Building</h3><p>Essential Arabic vocabulary organized by themes: family, daily life, mosque, nature. Focus on high-frequency Quranic words.</p><div class="card-meta"><span>&#128336; 30 Lessons</span><span>&#9733; Beginner</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#128220;</div><h3>Grammar (Nahw)</h3><p>Arabic sentence structure, verb conjugation, noun cases (I'rab), and grammatical analysis.</p><div class="card-meta"><span>&#128336; 40 Lessons</span><span>&#9733; Intermediate</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(15,118,110,0.1);color:var(--emerald);">&#128214;</div><h3>Quranic Arabic</h3><p>Study the linguistic features of the Quran. Learn vocabulary, grammatical structures, and stylistic elements unique to Quranic Arabic.</p><div class="card-meta"><span>&#128336; 35 Lessons</span><span>&#9733; Intermediate</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(31,41,55,0.1);color:var(--charcoal);">&#128218;</div><h3>Classical Arabic</h3><p>Advanced study of classical texts including hadith, fiqh, and poetry. Develop ability to read original scholarly works.</p><div class="card-meta"><span>&#128336; 50 Lessons</span><span>&#9733; Advanced</span></div></div>
+        <div class="card"><div class="card-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#128220;</div><h3>Sarf (Morphology)</h3><p>Study of Arabic word formation, root patterns, and derivation. Essential for understanding how words relate to each other.</p><div class="card-meta"><span>&#128336; 25 Lessons</span><span>&#9733; Intermediate</span></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DOWNLOADS PAGE -->
+  <div id="downloads" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Resources</span>
+        <h1>Downloads</h1>
+        <p>Free study materials, planners, and trackers to support your journey in seeking knowledge.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-header fade-in">
+        <span class="section-label">Free Resources</span>
+        <h2>Study Materials</h2>
+        <p>Downloadable tools to organize and enhance your Islamic learning experience.</p>
+      </div>
+      <div class="card-grid fade-in">
+        <div class="card download-card">
+          <div class="download-icon">&#128220;</div>
+          <div class="download-info">
+            <h3>Complete Hanbali Study Manual</h3>
+            <p>A comprehensive guide to studying Islam through the Hanbali madhhab, covering Aqeedah, Fiqh, Hadith, and more.</p>
+            <p class="download-meta">PDF &bull; 2.4 MB &bull; 156 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Download link will be available once you upload your PDF file.'); return false;">Download</a>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#128197;</div>
+          <div class="download-info">
+            <h3>Study Planner</h3>
+            <p>A weekly and monthly planner designed specifically for Islamic studies.</p>
+            <p class="download-meta">PDF &bull; 850 KB &bull; 24 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Demo: This would download the PDF.'); return false;">Download</a>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#128214;</div>
+          <div class="download-info">
+            <h3>Quran Memorization Tracker</h3>
+            <p>Track your Hifz progress with detailed charts for each Juz, Surah, and page.</p>
+            <p class="download-meta">PDF &bull; 1.1 MB &bull; 32 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Demo: This would download the PDF.'); return false;">Download</a>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" style="background:rgba(15,118,110,0.1);color:var(--emerald);">&#128218;</div>
+          <div class="download-info">
+            <h3>Reading Tracker</h3>
+            <p>Log your Islamic book reading with space for notes, key takeaways, and ratings.</p>
+            <p class="download-meta">PDF &bull; 620 KB &bull; 16 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Demo: This would download the PDF.'); return false;">Download</a>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" style="background:rgba(31,41,55,0.1);color:var(--charcoal);">&#128221;</div>
+          <div class="download-info">
+            <h3>Revision Planner</h3>
+            <p>A structured system for reviewing what you have learned based on spaced repetition.</p>
+            <p class="download-meta">PDF &bull; 780 KB &bull; 20 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Demo: This would download the PDF.'); return false;">Download</a>
+        </div>
+        <div class="card download-card">
+          <div class="download-icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#128203;</div>
+          <div class="download-info">
+            <h3>Course Notes Template</h3>
+            <p>Structured note-taking templates for your Islamic studies.</p>
+            <p class="download-meta">PDF &bull; 450 KB &bull; 12 Pages</p>
+          </div>
+          <a href="#" class="btn btn-primary btn-sm" onclick="alert('Demo: This would download the PDF.'); return false;">Download</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div id="about" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">About Us</span>
+        <h1>The Hanbali Knowledge Project</h1>
+        <p>Seeking authentic Islamic knowledge upon the Qur'an and the authentic Sunnah, according to the understanding of the Salaf as-Salih.</p>
+      </div>
+    </section>
+    <section class="section" style="background:var(--white);">
+      <div class="about-content fade-in">
+        <h2 style="margin-bottom:2rem;">Our Mission</h2>
+        <p>The Hanbali Knowledge Project was founded with a clear purpose: to make authentic Islamic knowledge accessible to everyone who sincerely seeks it. In an age of confusion and misinformation, we believe it is essential to return to the sources of divine guidance.</p>
+        <p>We follow the methodology of Ahl as-Sunnah wal-Jama'ah, adhering to the understanding of the righteous predecessors (Salaf as-Salih). Our approach is rooted in the Hanbali school of jurisprudence.</p>
+        <p>Our curriculum is designed for gradual, structured learning. We believe knowledge must be built step by step, like constructing a building.</p>
+        <h2 style="margin:3rem 0 2rem;">Our Methodology</h2>
+        <p>We adhere to the following principles:</p>
+        <ul style="color:var(--charcoal-light);font-size:1.1rem;padding-left:1.5rem;line-height:2;margin-bottom:2rem;">
+          <li><strong>Quran First:</strong> The Quran is the primary source of all Islamic knowledge.</li>
+          <li><strong>Authentic Sunnah:</strong> We rely only on authentic hadith, verified through rigorous sciences.</li>
+          <li><strong>Understanding of the Salaf:</strong> We interpret according to the Companions and early generations.</li>
+          <li><strong>Hanbali Fiqh:</strong> We teach jurisprudence according to the madhhab of Imam Ahmad ibn Hanbal.</li>
+          <li><strong>Scholarly Referencing:</strong> All content is based on established classical and contemporary works.</li>
+          <li><strong>Gradual Progression:</strong> Knowledge is presented in a structured manner for all levels.</li>
+        </ul>
+        <h2 style="margin:3rem 0 2rem;">About the Founder</h2>
+        <p>This project was established by <strong>Ahmed Maqsood Alli</strong>, a student of knowledge dedicated to compiling and organizing Islamic educational resources for English-speaking Muslims.</p>
+        <p>We ask Allah to accept this effort, forgive our shortcomings, and make it a means of benefit for all who use it.</p>
+        <div style="margin-top:3rem;padding:2rem;background:var(--ivory);border-radius:var(--radius-lg);border-left:4px solid var(--emerald);">
+          <p style="font-family:'Merriweather',serif;font-style:italic;font-size:1.1rem;color:var(--charcoal);margin-bottom:1rem;">"This knowledge is religion, so look carefully from whom you take your religion."</p>
+          <p style="color:var(--emerald);font-weight:600;">— Imam Muslim (d. 261 AH)</p>
+        </div>
+      </div>
+      <div class="about-values fade-in">
+        <div class="card value-card"><div class="value-icon">&#10022;</div><h3>Authenticity</h3><p>Every piece of content is verified against authentic sources and classical references.</p></div>
+        <div class="card value-card"><div class="value-icon" style="color:var(--gold);">&#9825;</div><h3>Sincerity</h3><p>We seek only the pleasure of Allah in all our efforts, with no desire for worldly gain.</p></div>
+        <div class="card value-card"><div class="value-icon" style="color:var(--emerald);">&#128218;</div><h3>Accessibility</h3><p>Knowledge should be available to everyone, regardless of background or location.</p></div>
+        <div class="card value-card"><div class="value-icon" style="color:var(--navy);">&#9878;</div><h3>Structure</h3><p>Organized, progressive learning paths that build understanding step by step.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact" class="page">
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Get in Touch</span>
+        <h1>Contact Us</h1>
+        <p>Have a question, suggestion, or want to collaborate? We would love to hear from you.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="contact-grid fade-in">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-item"><div class="icon">&#9993;</div><div><h4>Email</h4><p>info@hanbaliknowledge.org</p></div></div>
+          <div class="contact-item"><div class="icon">&#128172;</div><div><h4>Telegram</h4><p>@HanbaliKnowledge</p></div></div>
+          <div class="contact-item"><div class="icon" style="background:rgba(212,175,55,0.1);color:var(--gold);">&#127909;</div><div><h4>YouTube</h4><p>The Hanbali Knowledge Project</p></div></div>
+          <div class="contact-item"><div class="icon" style="background:rgba(30,58,95,0.1);color:var(--navy);">&#128247;</div><div><h4>Instagram</h4><p>@hanbali.knowledge</p></div></div>
+          <div style="margin-top:2rem;padding:1.5rem;background:var(--ivory);border-radius:var(--radius);border-left:4px solid var(--emerald);">
+            <p style="font-family:'Merriweather',serif;font-style:italic;color:var(--charcoal);font-size:0.95rem;">"The believers are but a single brotherhood."</p>
+            <p style="color:var(--emerald);font-size:0.85rem;font-weight:600;margin-top:0.5rem;">— Surah al-Hujurat (49:10)</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3 style="margin-bottom:1.5rem;">Send a Message</h3>
+          <form id="contactForm">
+            <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject" required><option value="">Select a topic</option><option value="question">General Question</option><option value="course">Course Inquiry</option><option value="feedback">Feedback</option><option value="collaboration">Collaboration</option><option value="correction">Correction</option><option value="other">Other</option></select></div>
+            <div class="form-group"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Write your message here..." required></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" onclick="showPage('home'); return false;">
+          <div class="logo-icon">&#10022;</div>
+          <span>Hanbali Knowledge</span>
+        </a>
+        <p>Seeking authentic Islamic knowledge upon the Qur'an and the authentic Sunnah.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('courses'); return false;">Courses</a></li>
+          <li><a href="#" onclick="showPage('library'); return false;">Library</a></li>
+          <li><a href="#" onclick="showPage('articles'); return false;">Articles</a></li>
+          <li><a href="#" onclick="showPage('arabic'); return false;">Arabic</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('scholars'); return false;">Scholars</a></li>
+          <li><a href="#" onclick="showPage('companions'); return false;">Companions</a></li>
+          <li><a href="#" onclick="showPage('downloads'); return false;">Downloads</a></li>
+          <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+          <li><a href="#">Telegram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span class="current-year"></span> The Hanbali Knowledge Project by Ahmed Maqsood Alli. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== PAGE NAVIGATION =====
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelector('.nav-link[data-page="' + pageId + '"]').classList.add('active');
+      window.scrollTo(0, 0);
+      document.getElementById('navLinks').classList.remove('active');
+      document.getElementById('mobileToggle').innerHTML = '&#9776;';
+    }
+
+    // ===== THEME TOGGLE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.innerHTML = savedTheme === 'light' ? '&#9789;' : '&#9728;';
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.innerHTML = next === 'light' ? '&#9789;' : '&#9728;';
+    });
+
+    // ===== MOBILE MENU =====
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileToggle.innerHTML = navLinks.classList.contains('active') ? '&#10005;' : '&#9776;';
+    });
+
+    // ===== SEARCH OVERLAY =====
+    const searchTrigger = document.getElementById('searchTrigger');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchClose = document.getElementById('searchClose');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    const searchData = [
+      { title: 'Foundations of Islam', type: 'Course', desc: 'Begin your journey with the essential pillars of faith', page: 'courses' },
+      { title: 'Aqeedah Fundamentals', type: 'Course', desc: 'Understanding Islamic creed based on Quran and Sunnah', page: 'courses' },
+      { title: 'Hanbali Fiqh Essentials', type: 'Course', desc: 'The foundational rulings of worship and daily life', page: 'courses' },
+      { title: 'Hadith Studies', type: 'Course', desc: 'Introduction to Mustalah al-Hadith', page: 'courses' },
+      { title: 'Tafsir al-Quran', type: 'Course', desc: 'Methodology of Quranic exegesis', page: 'courses' },
+      { title: 'Seerah & History', type: 'Course', desc: 'The life of the Prophet and righteous Caliphate', page: 'courses' },
+      { title: 'Arabic Language', type: 'Course', desc: 'From alphabet to grammar', page: 'courses' },
+      { title: 'Islamic Manners', type: 'Course', desc: 'Adab in seeking knowledge and daily life', page: 'courses' },
+      { title: 'Riyadh as-Salihin', type: 'Book', desc: 'Gardens of the Righteous by Imam an-Nawawi', page: 'library' },
+      { title: 'Al-Aqeedah al-Wasitiyyah', type: 'Book', desc: 'The Creed of the People of the Sunnah by Ibn Taymiyyah', page: 'library' },
+      { title: 'Kitab at-Tawhid', type: 'Book', desc: 'The Book of Monotheism', page: 'library' },
+      { title: 'Zad al-Mustaqni'', type: 'Book', desc: 'The Provision for the Seeker by Imam al-Hajjawi', page: 'library' },
+      { title: 'Musnad Ahmad', type: 'Book', desc: 'The Musnad of Imam Ahmad ibn Hanbal', page: 'library' },
+      { title: 'Imam Ahmad ibn Hanbal', type: 'Scholar', desc: 'Founder of the Hanbali school', page: 'scholars' },
+      { title: 'Ibn Taymiyyah', type: 'Scholar', desc: 'Renowned scholar of Aqeedah and Fiqh', page: 'scholars' },
+      { title: 'Ibn al-Qayyim', type: 'Scholar', desc: 'Student of Ibn Taymiyyah', page: 'scholars' },
+      { title: 'Sheikh Ibn Baz', type: 'Scholar', desc: 'Former Grand Mufti of Saudi Arabia', page: 'scholars' },
+      { title: 'Al-Albani', type: 'Scholar', desc: 'The Muhaddith of this era', page: 'scholars' },
+      { title: 'Salih al-Fawzan', type: 'Scholar', desc: 'Member of the Council of Senior Scholars', page: 'scholars' },
+      { title: 'Abu Bakr as-Siddiq', type: 'Companion', desc: 'The first Caliph', page: 'companions' },
+      { title: 'Umar ibn al-Khattab', type: 'Companion', desc: 'The second Caliph, al-Faruq', page: 'companions' },
+      { title: 'Uthman ibn Affan', type: 'Companion', desc: 'The third Caliph, Dhun-Nurayn', page: 'companions' },
+      { title: 'Ali ibn Abi Talib', type: 'Companion', desc: 'The fourth Caliph, the gate of knowledge', page: 'companions' },
+      { title: 'Arabic Alphabet', type: 'Arabic', desc: 'Learn the 28 letters of Arabic', page: 'arabic' },
+      { title: 'Quranic Arabic', type: 'Arabic', desc: 'Understanding the language of the Quran', page: 'arabic' },
+      { title: 'Study Manual PDF', type: 'Download', desc: 'Complete Hanbali Islamic Study Manual', page: 'downloads' },
+      { title: 'Study Planner', type: 'Download', desc: 'Organize your daily Islamic studies', page: 'downloads' },
+      { title: 'Memorization Tracker', type: 'Download', desc: 'Track your Quran memorization', page: 'downloads' },
+    ];
+
+    searchTrigger.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); });
+    searchClose.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchInput.value = ''; searchResults.innerHTML = ''; });
+    searchOverlay.addEventListener('click', (e) => { if (e.target === searchOverlay) { searchOverlay.classList.remove('active'); searchInput.value = ''; searchResults.innerHTML = ''; } });
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      if (query.length < 2) { searchResults.innerHTML = '<p style="text-align:center;color:var(--charcoal-light);padding:2rem;">Type at least 2 characters...</p>'; return; }
+      const filtered = searchData.filter(item => item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query) || item.type.toLowerCase().includes(query));
+      if (filtered.length === 0) { searchResults.innerHTML = '<p style="text-align:center;color:var(--charcoal-light);padding:2rem;">No results found.</p>'; return; }
+      searchResults.innerHTML = filtered.map(item => '<div class="search-result-item" onclick="showPage('' + item.page + ''); document.getElementById('searchOverlay').classList.remove('active'); document.getElementById('searchInput').value = '';"><div class="result-icon">&#10022;</div><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;"><h4>' + item.title + '</h4><span class="result-type">' + item.type + '</span></div><p>' + item.desc + '</p></div></div>').join('');
+    });
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); searchOverlay.classList.add('active'); searchInput.focus(); }
+      if (e.key === 'Escape') { searchOverlay.classList.remove('active'); searchInput.value = ''; searchResults.innerHTML = ''; }
+    });
+
+    // ===== COURSE FILTER =====
+    function filterCourses(filter, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.course-card').forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) { card.style.display = 'flex'; }
+        else { card.style.display = 'none'; }
+      });
+    }
+
+    // ===== BOOK FILTER =====
+    function filterBooks(category, link) {
+      document.querySelectorAll('.library-categories a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      document.querySelectorAll('.book-card-wrapper').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) { card.style.display = 'block'; }
+        else { card.style.display = 'none'; }
+      });
+    }
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== FORMS =====
+    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      alert('Thank you for subscribing! You will receive updates at: ' + email);
+      e.target.reset();
+    });
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert('Thank you, ' + name + '! Your message has been received. We will respond within 24-48 hours insha'Allah.');
+      e.target.reset();
+    });
+
+    // ===== CURRENT YEAR =====
+    document.querySelectorAll('.current-year').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.1)' : 'none';
+    });
+  </script>
+</body>
+</html>
